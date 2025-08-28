@@ -44,7 +44,7 @@
     "@google-cloud/trace-agent": "^8.0.0",
     "@modelcontextprotocol/sdk": "^1.17.0",
     "dotenv": "^16.4.7",
-    "google-auth-library": "^10.2.0",
+    "google-auth-library": "^10.3.0",
     "googleapis": "^154.1.0",
     "winston": "^3.17.0",
     "zod": "^3.23.8"
