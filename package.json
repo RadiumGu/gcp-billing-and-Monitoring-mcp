@@ -1,0 +1,69 @@
+{
+  "name": "gcp-billing-and-monitoring-mcp",
+  "version": "0.5.0",
+  "description": "Model Context Protocol server for Google Cloud services",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && pnpm run copy-assets",
+    "copy-assets": "cp -R src/services/monitoring/*.md dist/services/monitoring/",
+    "start": "node dist/index.js",
+    "dev": "ts-node --esm src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "ci": "pnpm run lint && pnpm run format:check && pnpm run test:coverage"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "google-cloud",
+    "billing",
+    "error-reporting",
+    "iam",
+    "logging",
+    "monitoring",
+    "profiler",
+    "spanner",
+    "trace"
+  ],
+  "author": "",
+  "license": "Apache",
+  "dependencies": {
+    "@google-cloud/billing": "^5.1.0",
+    "@google-cloud/iam": "^2.3.0",
+    "@google-cloud/logging": "^11.2.0",
+    "@google-cloud/monitoring": "^5.3.0",
+    "@google-cloud/resource-manager": "^6.2.0",
+    "@google-cloud/spanner": "^8.1.0",
+    "@google-cloud/trace-agent": "^8.0.0",
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "dotenv": "^16.4.7",
+    "google-auth-library": "^10.2.0",
+    "googleapis": "^154.1.0",
+    "winston": "^3.17.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "@vitest/coverage-v8": "^1.6.1",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "vitest": "^1.6.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@9.15.4"
+}
