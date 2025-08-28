@@ -7,13 +7,8 @@ A Model Context Protocol server that connects to Google Cloud services to provid
 Supported Google Cloud services:
 
 - [x] [Billing](https://cloud.google.com/billing)
-- [x] [Error Reporting](https://cloud.google.com/error-reporting)
-- [x] [Identity and Access Management (IAM)](https://cloud.google.com/iam)
 - [x] [Logging](https://cloud.google.com/logging)
 - [x] [Monitoring](https://cloud.google.com/monitoring)
-- [x] [Profiler](https://cloud.google.com/profiler)
-- [x] [Spanner](https://cloud.google.com/spanner)
-- [x] [Trace](https://cloud.google.com/trace)
 
 ### Billing
 
@@ -27,29 +22,6 @@ Manage and analyse Google Cloud billing with cost optimisation insights:
 - "Generate cost recommendations for billing account billingAccounts/123456-789ABC-DEF012"
 - "Check for billing anomalies in project my-ecommerce-456"
 
-### Error Reporting
-
-Monitor and analyse application errors with automated investigation and remediation suggestions:
-
-**Tools:** `gcp-error-reporting-list-groups`, `gcp-error-reporting-get-group-details`, `gcp-error-reporting-analyse-trends`
-
-*Example prompts:*
-- "Show me error groups from project my-webapp-prod-789 for the last hour"
-- "Get details for error group projects/my-app-123/groups/xyz789"
-- "Analyse error trends for service my-api in project analytics-prod-456"
-
-### IAM
-
-Query and analyse IAM policies and permissions:
-
-**Tools:** `gcp-iam-get-project-policy`, `gcp-iam-test-project-permissions`, `gcp-iam-test-resource-permissions`, `gcp-iam-validate-deployment-permissions`, `gcp-iam-list-deployment-services`, `gcp-iam-analyse-permission-gaps`
-
-*Example prompts:*
-- "Get IAM policy for project my-webapp-prod-123"
-- "Test if I have storage.buckets.create permission on project data-lake-456"
-- "Check deployment permissions for Cloud Run in project microservices-789"
-- "Analyse permission gaps for deploying to GKE cluster in project k8s-prod-321"
-
 ### Logging
 
 Query and filter log entries from Google Cloud Logging:
@@ -60,17 +32,6 @@ Query and filter log entries from Google Cloud Logging:
 - "Show me logs from project my-app-prod-123 from the last hour with severity ERROR"
 - "Search for logs containing 'timeout' from service my-api in project backend-456"
 - "Query logs for resource type gce_instance in project compute-prod-789"
-
-### Spanner
-
-Interact with Google Cloud Spanner databases:
-
-**Tools:** `gcp-spanner-execute-query`, `gcp-spanner-list-tables`, `gcp-spanner-list-instances`, `gcp-spanner-list-databases`, `gcp-spanner-query-natural-language`, `gcp-spanner-query-count`
-
-*Example prompts:*
-- "List all databases in Spanner instance my-instance in project ecommerce-prod-123"
-- "Execute SQL: SELECT COUNT(*) FROM users in database user-db in project my-app-456"
-- "Show me table structure for orders in database inventory-db in project retail-789"
 
 ### Monitoring
 
@@ -83,39 +44,13 @@ Retrieve and analyse metrics from Google Cloud Monitoring:
 - "List available metric types for Compute Engine in project infrastructure-456"
 - "Query memory usage for instances in project backend-services-789"
 
-### Profiler
-
-Analyse application performance with Google Cloud Profiler:
-
-**Tools:** `gcp-profiler-list-profiles`, `gcp-profiler-analyse-performance`, `gcp-profiler-compare-trends`
-
-*Example prompts:*
-- "List CPU profiles from project my-java-app-123 for the last 24 hours"
-- "Analyse performance bottlenecks in service my-api in project backend-prod-456"
-- "Compare heap profiles for deployment v1.2 vs v1.3 in project performance-test-789"
-
-### Trace
-
-Analyse distributed traces from Google Cloud Trace:
-
-**Tools:** `gcp-trace-get-trace`, `gcp-trace-list-traces`, `gcp-trace-find-from-logs`, `gcp-trace-query-natural-language`
-
-*Example prompts:*
-- "Get trace details for ID abc123def456 in project distributed-app-789"
-- "Show me failed traces from project microservices-prod-123 from the last hour"
-- "Find logs related to trace xyz789 in project web-backend-456"
-- "Query traces for service checkout-api in project ecommerce-prod-321"
-
 ## Quick Start
 
 Once configured, you can interact with Google Cloud services using natural language:
 
 ```
 "What are my current billing costs for project my-webapp-prod-123?"
-"Show me errors from project ecommerce-api-456 in the last hour"
-"Check if I have permission to deploy to Cloud Run in project microservices-789"
 "Find logs containing 'database timeout' from project backend-prod-321 yesterday"
-"List Spanner databases in instance prod-db for project data-store-654"
 "What's the CPU usage of Compute Engine instances in project infrastructure-987?"
 ```
 
@@ -133,8 +68,8 @@ The server will also use the `GOOGLE_CLOUD_PROJECT` environment variable if set,
 
 ```bash
 # Clone the repository
-git clone https://github.com/krzko/google-cloud-mcp.git
-cd google-cloud-mcp
+git clone https://github.com/RadiumGu/gcp-billing-and-Monitoring-mcp.git
+cd gcp-billing-and-Monitoring-mcp
 
 # Install dependencies
 pnpm install
@@ -154,13 +89,13 @@ Configure the `mcpServers` in your client:
 ```json
 {
   "mcpServers": {
-      "google-cloud-mcp": {
+      "gcp-billing-and-monitoring-mcp": {
           "command": "node",
           "args": [
-              "/Users/foo/code/google-cloud-mcp/dist/index.js"
+              "/path/to/gcp-billing-and-Monitoring-mcp/dist/index.js"
           ],
           "env": {
-              "GOOGLE_APPLICATION_CREDENTIALS": "/Users/foo/.config/gcloud/application_default_credentials.json"
+              "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json"
           }
       }
   }
