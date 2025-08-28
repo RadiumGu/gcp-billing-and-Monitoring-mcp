@@ -68,8 +68,8 @@ The server will also use the `GOOGLE_CLOUD_PROJECT` environment variable if set,
 
 ```bash
 # Clone the repository
-git clone https://github.com/RadiumGu/gcp-billing-and-Monitoring-mcp.git
-cd gcp-billing-and-Monitoring-mcp
+git clone https://github.com/RadiumGu/gcp-billing-and-monitoring-mcp.git
+cd gcp-billing-and-monitoring-mcp
 
 # Install dependencies
 pnpm install
@@ -92,7 +92,7 @@ Configure the `mcpServers` in your client:
       "gcp-billing-and-monitoring-mcp": {
           "command": "node",
           "args": [
-              "/path/to/gcp-billing-and-Monitoring-mcp/dist/index.js"
+              "/path/to/gcp-billing-and-monitoring-mcp/dist/index.js"
           ],
           "env": {
               "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json"
